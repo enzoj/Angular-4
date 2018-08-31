@@ -1,0 +1,50 @@
+<h1>This is the User component</h1>
+<h2>{{name}}</h2>
+<ul>
+    <li>Age: {{age}}</li>
+    <li>Email: {{email}}</li>
+    <li>{{address.street}} {{address.city}}, {{address.state}}</li>
+</ul>
+
+<button (click)="onClick()">Click me</button>
+
+<h3>Edit User</h3>
+<form>
+    <div>
+        <label for="name">Name</label><br>
+        <input type="text" [(ngModel)]="name" name="name">
+    </div>
+    <div>
+        <label for="age">Age</label><br>
+        <input type="number" [(ngModel)]="age" name="age">
+    </div>
+    <div>
+        <label for="email">Email</label><br>
+        <input type="text" [(ngModel)]="email" name="email">
+    </div>
+    <div>
+        <label for="street">Street</label><br>
+        <input type="text" [(ngModel)]="address.street" name="street">
+    </div>
+    <div>
+        <label for="city">City</label><br>
+        <input type="text" [(ngModel)]="address.city" name="city">
+    </div>
+    <div>
+        <label for="state">State</label><br>
+        <input type="text" [(ngModel)]="address.state" name="state">
+        </div>
+</form>
+
+<h3>Hobbies</h3>
+<form (submit)="addHobby(hobby.value)">
+    <div>
+        <label for="hobby">Hobby</label>
+        <input type="text" #hobby>
+    </div>
+</form>
+<ul>
+    <li *ngFor="let hobby of hobbies; let i = index">
+        {{i}}: {{hobby}} <button (click)="deleteHobby(hobby)">x</button>
+    </li>
+</ul>
